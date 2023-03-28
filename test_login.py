@@ -11,34 +11,26 @@ class Test_001_login:
     lastnamee = "bogati"
     zippostalcodee = "44600"
 
-
+ 
     def test_Login(self):
         self.driver = setup()
         self.driver.get(self.baseURLL)
-        self.lp = LoginPage(self.driver)
-        self.lp.setUserNamee(self.usernamee)
-        self.lp.setPasswordd(self.passwordd)
-        self.lp.clickLoginn()
-
-    def test_Homepage(self):
-        self.test_Login()
-        self.lp = HomePage(self.driver)
-        self.lp.clickAddtoCart()
-        self.lp.clickShoppingCart()
-        self.lp.clickCheckOut()
-
-    def test_Checkout(self):
-        self.test_Homepage()
-        self.lp = CheckOut(self.driver)
-        self.lp.setFirstNamee(self.firsnamee)
-        self.lp.setLastNamee(self.lastnamee)
-        self.lp.setZipPostalCodee(self.zippostalcodee)
-        self.lp.clickContinuee()
+        self.loginpage = LoginPage(self.driver)
+        self.loginpage.setUserNamee(self.usernamee)
+        self.loginpage.setPasswordd(self.passwordd)
+        self.loginpage.clickLoginn()
+        self.homepage = HomePage(self.driver)
+        self.homepage.clickAddtoCart()
+        self.homepage.clickShoppingCart()
+        self.homepage.clickCheckOut()
+        self.checkout = CheckOut(self.driver)
+        self.checkout.setFirstNamee(self.firsnamee)
+        self.checkout.setLastNamee(self.lastnamee)
+        self.checkout.setZipPostalCodee(self.zippostalcodee)
+        self.checkout.clickContinuee()
 
 
-if __name__ == '__main__':
+if __name__ == '__main__': 
     login = Test_001_login()
     login.test_Login()
-    login.test_Homepage()
-    login.test_Checkout()
     

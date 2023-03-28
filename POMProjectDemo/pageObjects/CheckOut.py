@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver import Keys
 class CheckOut:
     textbox_firstname_id = "first-name"
     textbox_lastname_id = "last-name"
@@ -10,20 +11,15 @@ class CheckOut:
         self.driver=driver 
 
     def setFirstNamee(self, firstnamee):
-        self.find_element_by_id(self.textbox_firstname_id).clear()
-        self.find_element_by_id(self.textbox_firstname_id).send_keys(firstnamee)
+        self.driver.find_element(By.ID, self.textbox_firstname_id).send_keys(Keys.BACK_SPACE, firstnamee)
 
     def setLastNamee(self, lastnamee):
-        self.find_element_by_id(self.textbox_lastname_id).clear()
-        self.find_element_by_id(self.textbox_lastname_id).send_keys(lastnamee)
+        self.driver.find_element(By.ID, self.textbox_lastname_id).send_keys(Keys.BACK_SPACE, lastnamee)
 
     def setZipPostalCodee(self, zippostalcodee):
-        self.find_element_by_id(self.textbox_zippostalcode_id).clear()
-        self.find_element_by_id(self.textbox_zippostalcode_id).send_keys(zippostalcodee)
+        self.driver.find_element(By.ID, self.textbox_zippostalcode_id).send_keys(Keys.BACK_SPACE, zippostalcodee)
 
     def clickContinuee(self):
-        self.find_element_by_id(self.button_continue_id).click()
-    
-    def find_element_by_id(self, value):
-        return self.driver.find_element(By.ID, value)
+        self.driver.find_element(By.ID, self.button_continue_id).click()
+
 

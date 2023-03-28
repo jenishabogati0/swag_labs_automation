@@ -9,18 +9,12 @@ class HomePage:
         self.driver = driver
 
     def clickAddtoCart(self):
-        self.find_element_by_id(self.button_add_to_cart_id).click()
+        self.driver.find_element(By.ID, self.button_add_to_cart_id).click()
 
     def clickShoppingCart(self):
-        self.find_element_by_class(self.button_view_cart_xpath).click()
+        self.driver.find_element(By.XPATH, self.button_view_cart_xpath).click()
 
     def clickCheckOut(self):
-        self.find_element_by_id(self.button_click_checkout_id).click()
+        self.driver.find_element(By.ID, self.button_click_checkout_id).click()
 
-    def find_element_by_id(self, value):
-        return self.driver.find_element(By.ID, value)
-    
-    def find_element_by_class(self, value):
-        return self.driver.find_element(By.XPATH, value)
-    
     
